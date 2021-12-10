@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $data = fopen("data.txt", "a");
 
 
@@ -20,6 +20,14 @@ if (isset($_POST["sub"])) {
     $k++;
     if ($arrayd[$k] == $password) {
       echo "login successful";
+      if (isset($_POST["rmbr"])) {
+        setcookie('username', $username, time() + 3600 * 24 * 7);
+        setcookie('password', $password, time() + 3600 * 24 * 7);
+      } else {
+        setcookie('username', $username, time() + 1);
+        setcookie('password', $password, time() + 1);
+      }
+      echo "<a href = 'logout.php'> log out </a>";
     } else {
       echo "login failed";
     }
@@ -41,5 +49,4 @@ if (isset($_POST["rbtn"])) {
   $mail = $_POST["mail"];
   $password = $_POST["psw"];
   fwrite($data, $name . " " . $mail . " " . $password . " ");
-
 }
