@@ -3,8 +3,6 @@ session_start();
 $data = fopen("data.txt", "a");
 
 
-
-
 if (isset($_POST["sub"])) {
   $arrayd = array();
   $username = $_POST["uname"];
