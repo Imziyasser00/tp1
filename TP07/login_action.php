@@ -5,7 +5,7 @@ $data = fopen("data.txt", "a");
 
 if (isset($_POST["sub"])) {
   $arrayd = array();
-  $username = $_POST["uname"];
+  $username = $_POST["uname"];   
   $password = $_POST["psw"];
   $datar = fopen("data.txt", "r");
   while (!feof($datar)) {
